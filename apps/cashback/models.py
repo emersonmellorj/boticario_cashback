@@ -63,6 +63,9 @@ class Usuarios(AbstractBaseUser):
         "Does the user have a specific permission?"
         return True
 
+    def has_perms(perm_list, obj=None):
+        return True
+
     def has_module_perms(self, app_label):
         "Does the user have permissions to view the app `app_label`?"
         return True
@@ -75,3 +78,15 @@ class Usuarios(AbstractBaseUser):
         db_table = "usuarios"
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"
+
+
+class Compras(models.Model):
+    purchase_code = models.IntegerField(
+        primary_key=True, null=False, blank=False)
+    purchase_total_price = models.DecimalField(
+        decimal_places=2, max_digits=5, null=False, blank=False)
+    purchase_date = models.DateField(null=False, blank=False)
+    cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
+    status = models.CharField(max_length=15, default='Em validação')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_art = models.DateTimeField(auto_now=True)
