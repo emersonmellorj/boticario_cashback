@@ -101,3 +101,7 @@ class Compras(models.Model):
     status = models.CharField(max_length=15, default='Em validação')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_art = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Compra"
+        verbose_name_plural = "Compras"

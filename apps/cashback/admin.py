@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from .models import Usuarios
+from .models import Usuarios, Compras
 
 
 class UsuarioCreationForm(forms.ModelForm):
@@ -77,3 +77,17 @@ class UsuarioAdmin(BaseUserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
+
+
+@admin.register(Compras)
+class ComprasAdmin(admin.ModelAdmin):
+    list_display = ('purchase_code', 'purchase_total_price',
+                    'purchase_date', 'cashback_percent', 'cashback_value', 'status')
+
+    list_filter = ('purchase_date',)
+    fieldsets = (
+        (None, {'fields': ('purchase_code', 'purchase_total_price',
+                           'purchase_date', 'cashback_percent', 'cashback_value', 'status')}),
+    )
+
+    search_fields = ('purchase_code',)
