@@ -129,9 +129,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # DRF
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    # Autenticacao via sessao na API
+    #    'rest_framework.authentication.SessionAuthentication',
+    # 'rest_framework.authentication.TokenAuthentication',
+    # ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    # Autorizacao para os clientes
+    #    'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    # ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,
 }
 
 AUTH_USER_MODEL = 'cashback.Usuarios'

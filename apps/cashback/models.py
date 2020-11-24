@@ -1,5 +1,7 @@
+from apps.cashback.api.utils.cashback import cashback_calculate
 from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
+from django.urls import reverse
 
 
 class UsuarioManager(BaseUserManager):
@@ -56,6 +58,9 @@ class Usuarios(AbstractBaseUser):
 
     objects = UsuarioManager()
 
+    def get_absolute_url(self):
+        return reverse("cashback:user_detail", kwargs={"cpf": self.cpf})
+
     def __str__(self):
         return self.email
 
@@ -82,11 +87,17 @@ class Usuarios(AbstractBaseUser):
 
 class Compras(models.Model):
     purchase_code = models.IntegerField(
-        primary_key=True, null=False, blank=False)
+        primary_key=True, null=False, blank=False
+    )
     purchase_total_price = models.DecimalField(
-        decimal_places=2, max_digits=5, null=False, blank=False)
+        decimal_places=2, max_digits=8, null=False, blank=False
+    )
     purchase_date = models.DateField(null=False, blank=False)
     cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
+    cashback_percent = models.IntegerField(null=True, blank=True)
+    cashback_value = models.DecimalField(
+        decimal_places=2, max_digits=8, null=True, blank=True
+    )
     status = models.CharField(max_length=15, default='Em validação')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_art = models.DateTimeField(auto_now=True)
