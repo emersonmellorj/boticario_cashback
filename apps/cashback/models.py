@@ -6,10 +6,6 @@ from django.urls import reverse
 
 class UsuarioManager(BaseUserManager):
     def create_user(self, email, firstname, lastname, cpf, password=None):
-        """
-        Creates and saves a User with the given email, date of
-        birth and password.
-        """
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -25,10 +21,6 @@ class UsuarioManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, firstname, lastname, cpf, password=None):
-        """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
-        """
         user = self.create_user(
             email,
             password=password,
