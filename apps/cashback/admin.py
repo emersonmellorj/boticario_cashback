@@ -73,12 +73,12 @@ class UsuarioAdmin(BaseUserAdmin):
 @admin.register(Compras)
 class ComprasAdmin(admin.ModelAdmin):
     list_display = ('purchase_code', 'purchase_total_price',
-                    'purchase_date', 'cashback_percent', 'cashback_value', 'status')
+                    'purchase_date', 'status')
 
     list_filter = ('purchase_date',)
     fieldsets = (
         (None, {'fields': ('purchase_code', 'purchase_total_price',
-                           'purchase_date', 'cashback_percent', 'cashback_value', 'status')}),
+                           'purchase_date', 'status')}),
     )
 
     search_fields = ('purchase_code',)

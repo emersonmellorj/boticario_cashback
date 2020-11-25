@@ -78,6 +78,12 @@ class Usuarios(AbstractBaseUser):
 
 
 class Compras(models.Model):
+
+    STATUS_CHOICES = (
+        ("EV", "Em validação"),
+        ("AP", "Aprovado")
+    )
+
     purchase_code = models.IntegerField(
         primary_key=True, null=False, blank=False
     )
@@ -86,11 +92,9 @@ class Compras(models.Model):
     )
     purchase_date = models.DateField(null=False, blank=False)
     cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
-    cashback_percent = models.IntegerField(null=True, blank=True)
-    cashback_value = models.DecimalField(
-        decimal_places=2, max_digits=8, null=True, blank=True
+    status = models.CharField(
+        max_length=15, choices=STATUS_CHOICES, default='Em validação'
     )
-    status = models.CharField(max_length=15, default='Em validação')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_art = models.DateTimeField(auto_now=True)
 

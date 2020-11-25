@@ -24,33 +24,48 @@ class ComprasList(APIView):
             logger.exception(f"A compra de código {pk} não existe!")
             raise Http404
 
-    def get(self, request, pk=None, format=None):
+    def get(self, request, pk=None, cpf=None, ano=None, mes=None, format=None):
+        # Consulta de uma compra cadastrada
         if pk:
             logger.debug(f'Listando a compra de número {pk}')
             compra = self.get_objects(pk)
             serializer = ComprasSerializer(compra)
-        else:
-            compras = Compras.objects.all()
+        # Consulta do cashback para determinado CPF
+        elif cpf and mes and ano:
+            """ Preciso fazer a soma do valor das compras, calcular o cashback e devolver a informação.
+            Obs: Só entram nos cálculos as compras com status Aprovado. """
+            compras = Compras.objects.filter(
+                cpf=cpf, purchase_date__month=mes, purchase_date__year=ano, status='Aprovado')
+            total_compras_mes = sum(compra.purchase_total_price
+                                    for compra in compras)
             logger.debug(
-                f'Listando as compras: {[compra.purchase_code for compra in compras]}')
+                f"Valor total de compras no mês de {mes}/{ano} para o cpf {cpf}: {total_compras_mes}"
+            )
+            # Calculando o cashback do revendedor
+            cashback_percent, cashback_value, cashback_context = cashback_calculate(
+                cpf, total_compras_mes, mes, ano
+            )
+            logger.debug(f"O percentual de cashback para o cpf {cpf} é de {cashback_percent}% "
+                         f"e o valor total é de {cashback_value}.")
             serializer = ComprasSerializer(compras, many=True)
+            if not compras:
+                return Response(
+                    {"mensagem": "Dados não encontrados para o CPF no Mês/Ano informado."}, status=status.HTTP_404_NOT_FOUND
+                )
+            logger.debug(
+                f'Listando as compras: {[compra.purchase_code for compra in compras]}'
+            )
+            return Response(cashback_context)
+
+        else:
+            return Response(
+                {"mensagem": "Favor informar um CPF e Mês/Ano para o cálculo do cashback."}, status=status.HTTP_404_NOT_FOUND
+            )
         return Response(serializer.data)
 
     def post(self, request, format=None):
         serializer = ComprasSerializer(data=request.data)
         if serializer.is_valid():
-            # Cashback calculate for purchase
-            cashback_percent, cashback_value = cashback_calculate(
-                serializer.validated_data['purchase_total_price']
-            )
-            logger.debug(
-                f"Dados calculados para cashback da compra "
-                f"{serializer.validated_data['purchase_code']}: percentual de "
-                f"{cashback_percent}% com o valor total de R${cashback_value}."
-            )
-            serializer.validated_data['cashback_percent'] = cashback_percent
-            serializer.validated_data['cashback_value'] = cashback_value
-
             validated_cpf = serializer.validated_data['cpf'] == "15350946056"
             if validated_cpf:
                 logger.debug(
@@ -59,8 +74,7 @@ class ComprasList(APIView):
                 serializer.validated_data['status'] = "Aprovado"
             serializer.save()
             logger.info(
-                f"Método POST chamado para cadastro da compra: {request.data} com "
-                f"porcentagem de cashback em {cashback_percent}% e valor de cashback de R$ {cashback_value}."
+                f"Método POST chamado para cadastro da compra: {request.data}."
             )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -6,7 +6,7 @@ class ComprasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Compras
         fields = ['purchase_code', 'purchase_total_price',
-                  'purchase_date', 'cpf', 'cashback_percent', 'cashback_value', 'status']
+                  'purchase_date', 'cpf', 'status']
 
 
 class UsuariosSerializer(serializers.ModelSerializer):

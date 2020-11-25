@@ -3,7 +3,9 @@ from . import views
 
 app_name = 'cashback'
 urlpatterns = [
-    path('compras/', views.ComprasList.as_view(), name='purchase_list'),
+    path('compras/', views.ComprasList.as_view(), name='purchase_create'),
+    path('compras/cashback/<str:cpf>/<int:ano>/<int:mes>/',
+         views.ComprasList.as_view(), name='purchase_list'),
     path('compras/<pk>/', views.ComprasList.as_view(), name='purchase_detail'),
     path('usuarios/', views.UsuariosList.as_view(),
          name='user_create'),
