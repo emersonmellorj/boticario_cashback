@@ -1,4 +1,4 @@
-[25/Nov/2020 08:27:30] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/10/
+[25/Nov/2020 11:33:40] ERROR [django.request:224] Internal Server Error: /api/compras/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -16,17 +16,33 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 58, in get
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 66, in post
     if serializer.is_valid():
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 718, in is_valid
-    assert hasattr(self, 'initial_data'), (
-AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
-[25/Nov/2020 08:27:30] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/10/ HTTP/1.1" 500 97995
-[25/Nov/2020 08:27:45] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:27:47] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:27:47] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:27:47] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:27:47] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/10/
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 419, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 472, in to_internal_value
+    for field in fields:
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 355, in _writable_fields
+    for field in self.fields.values():
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 1029, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 1125, in get_field_names
+    assert field_name in fields, (
+AssertionError: The field 'status' was declared on serializer ComprasSerializer, but has not been included in the 'fields' option.
+[25/Nov/2020 11:33:40] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 127998
+[25/Nov/2020 11:34:00] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:34:05] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:34:10] DEBUG [apps.cashback.api.views:69] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
+[25/Nov/2020 11:34:10] INFO [apps.cashback.api.views:74] Método POST chamado para cadastro da compra: {'purchase_code': 12, 'purchase_total_price': 970.0, 'purchase_date': '2020-12-01', 'cpf': '15350946056'}.
+[25/Nov/2020 11:35:58] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:36:17] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:36:28] ERROR [django.request:224] Internal Server Error: /api/compras/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -44,23 +60,62 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 58, in get
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 66, in post
     if serializer.is_valid():
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 718, in is_valid
-    assert hasattr(self, 'initial_data'), (
-AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
-[25/Nov/2020 08:27:47] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/10/ HTTP/1.1" 500 97996
-[25/Nov/2020 08:28:01] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:28:04] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:28:04] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:28:04] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:28:04] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:28:04] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:28:48] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:28:52] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:28:52] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:28:52] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:28:52] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/10/
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 419, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 472, in to_internal_value
+    for field in fields:
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 355, in _writable_fields
+    for field in self.fields.values():
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 349, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 1053, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 1199, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 1317, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `Aprovado if status == "AP"` is not valid for model `Compras`.
+[25/Nov/2020 11:36:28] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 132674
+[25/Nov/2020 11:36:38] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:36:42] DEBUG [apps.cashback.api.views:69] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
+[25/Nov/2020 11:36:42] INFO [apps.cashback.api.views:74] Método POST chamado para cadastro da compra: {'purchase_code': 12, 'purchase_total_price': 970.0, 'purchase_date': '2020-12-01', 'cpf': '15350946056'}.
+[25/Nov/2020 11:37:08] INFO [apps.cashback.api.views:74] Método POST chamado para cadastro da compra: {'purchase_code': 13, 'purchase_total_price': 770.0, 'purchase_date': '2020-12-01', 'cpf': '09079003727'}.
+[25/Nov/2020 11:37:41] DEBUG [apps.cashback.api.views:39] Valor total de compras no mês de 13/2020 para o cpf 15350946056: 0
+[25/Nov/2020 11:37:41] DEBUG [apps.cashback.api.views:46] O percentual de cashback para o cpf 15350946056 é de 10% e o valor total é de 0.0.
+[25/Nov/2020 11:37:41] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:37:41] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:37:50] DEBUG [apps.cashback.api.views:39] Valor total de compras no mês de 13/2020 para o cpf 09079003727: 0
+[25/Nov/2020 11:37:50] DEBUG [apps.cashback.api.views:46] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 0.0.
+[25/Nov/2020 11:37:50] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:37:50] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:37:54] DEBUG [apps.cashback.api.views:39] Valor total de compras no mês de 12/2020 para o cpf 09079003727: 0
+[25/Nov/2020 11:37:54] DEBUG [apps.cashback.api.views:46] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 0.0.
+[25/Nov/2020 11:37:55] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:37:55] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:38:03] DEBUG [apps.cashback.api.views:28] Listando a compra de número 3
+[25/Nov/2020 11:38:03] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:38:03] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:38:09] DEBUG [apps.cashback.api.views:28] Listando a compra de número 13
+[25/Nov/2020 11:38:09] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:38:09] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:38:54] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:24] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:27] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:29] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:29] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:32] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:39:40] INFO [apps.cashback.api.views:74] Método POST chamado para cadastro da compra: {'purchase_code': 13, 'purchase_total_price': 770.0, 'purchase_date': '2020-12-01', 'cpf': '09079003727'}.
+[25/Nov/2020 11:41:08] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:42:54] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:43:24] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:43:28] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:43:48] ERROR [django.request:224] Internal Server Error: /api/compras/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -78,16 +133,13 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 58, in get
-    serializer.data["total_cashback"] = cashback_value
-TypeError: list indices must be integers or slices, not str
-[25/Nov/2020 08:28:52] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/10/ HTTP/1.1" 500 93209
-[25/Nov/2020 08:34:50] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:34:55] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:34:59] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:34:59] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:34:59] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:34:59] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/10/
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 75, in post
+    "Aprovado" if serializer.validated_data['status'] == "AP" else "Em validação"
+KeyError: 'status'
+[25/Nov/2020 11:43:48] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 88767
+[25/Nov/2020 11:44:26] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:44:30] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:44:53] ERROR [django.request:224] Internal Server Error: /api/compras/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -105,25 +157,14 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 58, in get
-    serializer.save(total_cashback=cashback_value)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 699, in save
-    {**attrs, **kwargs} for attrs in self.validated_data
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 264, in validated_data
-    raise AssertionError(msg)
-AssertionError: You must call `.is_valid()` before accessing `.validated_data`.
-[25/Nov/2020 08:34:59] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/10/ HTTP/1.1" 500 102342
-[25/Nov/2020 08:35:15] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:35:17] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:35:17] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:35:17] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:35:17] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:35:17] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:35:42] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:35:45] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:35:45] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:35:45] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:35:45] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/10/
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 75, in post
+    "Aprovado" if serializer.validated_data['status'] == "AP" else "Em validação"
+KeyError: 'status'
+[25/Nov/2020 11:44:53] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 88740
+[25/Nov/2020 11:45:30] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:45:41] INFO [apps.cashback.api.views:78] Método POST chamado para cadastro da compra: {'purchase_code': 13, 'purchase_total_price': 770.0, 'purchase_date': '2020-12-01', 'cpf': '09079003727'}.
+[25/Nov/2020 11:46:18] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:46:32] ERROR [django.request:224] Internal Server Error: /api/compras/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -141,65 +182,39 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 57, in get
-    if serializer.is_valid():
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/serializers.py", line 718, in is_valid
-    assert hasattr(self, 'initial_data'), (
-AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
-[25/Nov/2020 08:35:45] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/10/ HTTP/1.1" 500 98006
-[25/Nov/2020 08:39:02] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:39:25] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:40:05] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:40:10] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:41:12] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:41:21] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:41:25] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:41:25] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:41:25] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:41:25] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:41:25] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:42:00] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:42:05] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:42:05] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:42:05] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:42:05] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:42:05] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:43:08] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:13] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:23] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:30] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:44] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:53] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:43:58] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:44:01] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:44:01] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:44:01] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:44:01] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:44:01] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:45:04] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:10] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:14] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:17] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:38] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:41] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:45:54] DEBUG [apps.cashback.api.views:40] Valor total de compras no mês de 10 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:45:54] DEBUG [apps.cashback.api.views:47] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:45:54] DEBUG [apps.cashback.api.views:54] Listando as compras: [10]
-[25/Nov/2020 08:45:54] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:45:54] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:46:32] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:00] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:15] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:35] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:41] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:49] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:52] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:47:59] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:48:13] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:48:18] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:48:34] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:48:45] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:49:07] ERROR [django.request:224] Internal Server Error: /api/compras/cashback/09079003727/2020/10/
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 74, in post
+    serializer.data['status'] = "Aprovado" if serializer.validated_data['status'] == "AP" else "Em validação"
+KeyError: 'status'
+[25/Nov/2020 11:46:32] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 88845
+[25/Nov/2020 11:46:58] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:48:10] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:48:23] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:48:35] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:48:52] INFO [apps.cashback.api.views:78] Método POST chamado para cadastro da compra: {'purchase_code': 13, 'purchase_total_price': 770.0, 'purchase_date': '2020-12-01', 'cpf': '09079003727'}.
+[25/Nov/2020 11:49:49] DEBUG [apps.cashback.api.views:69] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
+[25/Nov/2020 11:49:49] INFO [apps.cashback.api.views:78] Método POST chamado para cadastro da compra: {'purchase_code': 14, 'purchase_total_price': 670.0, 'purchase_date': '2020-05-01', 'cpf': '15350946056'}.
+[25/Nov/2020 11:50:57] DEBUG [apps.cashback.api.views:28] Listando a compra de número 13
+[25/Nov/2020 11:50:57] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:50:57] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:51:01] DEBUG [apps.cashback.api.views:28] Listando a compra de número 14
+[25/Nov/2020 11:51:01] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:51:01] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:51:14] DEBUG [apps.cashback.api.views:39] Valor total de compras no mês de 10/2020 para o cpf 09079003727: 0
+[25/Nov/2020 11:51:14] DEBUG [apps.cashback.api.views:46] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 0.0.
+[25/Nov/2020 11:51:14] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:51:14] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:51:18] DEBUG [apps.cashback.api.views:39] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 500.00
+[25/Nov/2020 11:51:18] DEBUG [apps.cashback.api.views:46] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 50.00.
+[25/Nov/2020 11:51:18] DEBUG [apps.cashback.api.views:53] Listando as compras: [1]
+[25/Nov/2020 11:51:18] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
+[25/Nov/2020 11:51:18] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
+[25/Nov/2020 11:52:16] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:52:19] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:52:22] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:52:23] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:52:26] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 11:52:29] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:44:34] ERROR [django.request:224] Internal Server Error: /api/usuarios/
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -217,126 +232,159 @@ Traceback (most recent call last):
     raise exc
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-TypeError: get() got an unexpected keyword argument 'year'
-[25/Nov/2020 08:49:07] ERROR [django.server:157] "GET /api/compras/cashback/09079003727/2020/10/ HTTP/1.1" 500 87147
-[25/Nov/2020 08:50:29] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:50:31] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 10/2020 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:50:31] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:50:31] DEBUG [apps.cashback.api.views:55] Listando as compras: [10]
-[25/Nov/2020 08:50:31] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:50:31] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:50:43] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 10/2020 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:50:43] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:50:43] DEBUG [apps.cashback.api.views:55] Listando as compras: [10]
-[25/Nov/2020 08:50:43] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:50:43] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:52:03] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:52:08] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 10/2020 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:52:08] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:52:08] DEBUG [apps.cashback.api.views:55] Listando as compras: [10]
-[25/Nov/2020 08:52:08] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:52:08] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:52:37] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:52:39] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 10/2020 para o cpf 09079003727: 200.00
-[25/Nov/2020 08:52:39] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 20.00.
-[25/Nov/2020 08:52:39] DEBUG [apps.cashback.api.views:55] Listando as compras: [10]
-[25/Nov/2020 08:52:39] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:52:39] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:52:48] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 11900.00
-[25/Nov/2020 08:52:48] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 2380.00.
-[25/Nov/2020 08:52:48] DEBUG [apps.cashback.api.views:55] Listando as compras: [1, 2, 3, 5, 6, 7, 9]
-[25/Nov/2020 08:52:48] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:52:48] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:52:54] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003728: 0
-[25/Nov/2020 08:52:54] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003728 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:52:54] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:52:54] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:53:03] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 10/2020 para o cpf 09079003728: 0
-[25/Nov/2020 08:53:03] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003728 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:53:03] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:53:03] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:53:05] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003728: 0
-[25/Nov/2020 08:53:05] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003728 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:53:05] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:53:05] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:53:41] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 15350946056: 2100.00
-[25/Nov/2020 08:53:41] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 15350946056 é de 20% e o valor total é de 420.00.
-[25/Nov/2020 08:53:41] DEBUG [apps.cashback.api.views:55] Listando as compras: [4]
-[25/Nov/2020 08:53:41] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:53:41] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:54:48] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:56:27] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 15350946056: 2100.00
-[25/Nov/2020 08:56:27] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 15350946056 é de 20% e o valor total é de 420.00.
-[25/Nov/2020 08:56:27] DEBUG [apps.cashback.api.views:55] Listando as compras: [4]
-[25/Nov/2020 08:56:27] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:56:27] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:56:34] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003728: 0
-[25/Nov/2020 08:56:34] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003728 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:56:34] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:56:34] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:57:09] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003728: 0
-[25/Nov/2020 08:57:09] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003728 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:57:09] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:57:09] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:57:15] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 5000.00
-[25/Nov/2020 08:57:15] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 1000.00.
-[25/Nov/2020 08:57:15] DEBUG [apps.cashback.api.views:55] Listando as compras: [7]
-[25/Nov/2020 08:57:15] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:57:15] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:57:46] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 0
-[25/Nov/2020 08:57:46] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 10% e o valor total é de 0.0.
-[25/Nov/2020 08:57:46] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:57:46] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:58:10] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 5000.00
-[25/Nov/2020 08:58:10] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 1000.00.
-[25/Nov/2020 08:58:10] DEBUG [apps.cashback.api.views:55] Listando as compras: [7]
-[25/Nov/2020 08:58:10] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 08:58:10] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 08:59:26] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:59:33] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:59:35] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 08:59:46] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:00:28] DEBUG [apps.cashback.api.views:30] Listando a compra de número 9
-[25/Nov/2020 09:00:28] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:00:28] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:00:33] DEBUG [apps.cashback.api.views:30] Listando a compra de número 8
-[25/Nov/2020 09:00:33] ERROR [apps.cashback.api.views:24] A compra de código 8 não existe!
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:44:34] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88445
+[25/Nov/2020 14:45:51] ERROR [django.request:224] Internal Server Error: /api/usuarios/
 Traceback (most recent call last):
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 22, in get_objects
-    return Compras.objects.get(purchase_code=pk)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
-    raise self.model.DoesNotExist(
-apps.cashback.models.Compras.DoesNotExist: Compras matching query does not exist.
-[25/Nov/2020 09:00:33] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:00:33] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:00:37] DEBUG [apps.cashback.api.views:30] Listando a compra de número 7
-[25/Nov/2020 09:00:37] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:00:37] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:00:44] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 5000.00
-[25/Nov/2020 09:00:44] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 1000.00.
-[25/Nov/2020 09:00:44] DEBUG [apps.cashback.api.views:55] Listando as compras: [7]
-[25/Nov/2020 09:00:44] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:00:44] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:02:42] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 5800.00
-[25/Nov/2020 09:02:42] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 1160.00.
-[25/Nov/2020 09:02:42] DEBUG [apps.cashback.api.views:55] Listando as compras: [7, 9]
-[25/Nov/2020 09:02:42] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:02:42] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:03:39] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:04:36] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:04:43] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:05:12] DEBUG [apps.cashback.api.views:41] Valor total de compras no mês de 11/2020 para o cpf 09079003727: 5800.00
-[25/Nov/2020 09:05:12] DEBUG [apps.cashback.api.views:48] O percentual de cashback para o cpf 09079003727 é de 20% e o valor total é de 1160.00.
-[25/Nov/2020 09:05:12] DEBUG [apps.cashback.api.views:55] Listando as compras: [7, 9]
-[25/Nov/2020 09:05:12] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[25/Nov/2020 09:05:12] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[25/Nov/2020 09:07:27] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:09:56] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:10:22] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:10:26] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:10:32] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:10:39] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:14:51] DEBUG [asyncio:59] Using selector: KqueueSelector
-[25/Nov/2020 09:14:51] DEBUG [asyncio:59] Using selector: KqueueSelector
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:45:51] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88442
+[25/Nov/2020 14:45:58] ERROR [django.request:224] Internal Server Error: /api/usuarios/
+Traceback (most recent call last):
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:45:58] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88453
+[25/Nov/2020 14:46:06] ERROR [django.request:224] Internal Server Error: /api/usuarios/
+Traceback (most recent call last):
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:46:06] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88447
+[25/Nov/2020 14:46:44] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:46:49] DEBUG [apps.cashback.api.views:95] Solicitação de cadastro de usuário: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:48:56] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:49:03] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:49:15] ERROR [django.request:224] Internal Server Error: /api/usuarios/
+Traceback (most recent call last):
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:49:15] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88364
+[25/Nov/2020 14:49:26] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:50:27] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:51:52] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:51:59] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:52:13] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:52:21] ERROR [django.request:224] Internal Server Error: /api/usuarios/
+Traceback (most recent call last):
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:52:21] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88572
+[25/Nov/2020 14:52:24] ERROR [django.request:224] Internal Server Error: /api/usuarios/
+Traceback (most recent call last):
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 93, in post
+    serializer.data['password']
+KeyError: 'password'
+[25/Nov/2020 14:52:24] ERROR [django.server:157] "POST /api/usuarios/ HTTP/1.1" 500 88572
+[25/Nov/2020 14:52:36] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 14:52:39] DEBUG [apps.cashback.api.views:95] Solicitação de cadastro de usuário: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:52:44] ERROR [apps.cashback.api.views:98] Os dados para criação de usuário não foram aceitos: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:52:46] ERROR [apps.cashback.api.views:98] Os dados para criação de usuário não foram aceitos: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:52:46] ERROR [apps.cashback.api.views:98] Os dados para criação de usuário não foram aceitos: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:52:47] ERROR [apps.cashback.api.views:98] Os dados para criação de usuário não foram aceitos: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:52:48] ERROR [apps.cashback.api.views:98] Os dados para criação de usuário não foram aceitos: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:53:01] DEBUG [apps.cashback.api.views:95] Solicitação de cadastro de usuário: {'firstname': 'Mel', 'lastname': 'Mello', 'email': 'mel.mello@gmail.com', 'cpf': '09079003729', 'password': 'teste@1620'}
+[25/Nov/2020 14:53:20] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 15:02:53] DEBUG [asyncio:59] Using selector: KqueueSelector
+[25/Nov/2020 15:02:53] DEBUG [asyncio:59] Using selector: KqueueSelector

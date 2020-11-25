@@ -1,5 +1,3 @@
-from django.db.models import query
-from rest_framework import generics
 from ..models import Compras, Usuarios
 from .serializers import ComprasSerializer, UsuariosSerializer
 
@@ -24,26 +22,26 @@ class ComprasList(APIView):
             logger.exception(f"A compra de código {pk} não existe!")
             raise Http404
 
-    def get(self, request, pk=None, cpf=None, ano=None, mes=None, format=None):
+    def get(self, request, pk=None, cpf=None, year=None, month=None, format=None):
         # Consulta de uma compra cadastrada
         if pk:
             logger.debug(f'Listando a compra de número {pk}')
             compra = self.get_objects(pk)
             serializer = ComprasSerializer(compra)
         # Consulta do cashback para determinado CPF
-        elif cpf and mes and ano:
+        elif cpf and month and year:
             """ Preciso fazer a soma do valor das compras, calcular o cashback e devolver a informação.
             Obs: Só entram nos cálculos as compras com status Aprovado. """
             compras = Compras.objects.filter(
-                cpf=cpf, purchase_date__month=mes, purchase_date__year=ano, status='Aprovado')
+                cpf=cpf, purchase_date__month=month, purchase_date__year=year, status='Aprovado')
             total_compras_mes = sum(compra.purchase_total_price
                                     for compra in compras)
             logger.debug(
-                f"Valor total de compras no mês de {mes}/{ano} para o cpf {cpf}: {total_compras_mes}"
+                f"Valor total de compras no mês de {month}/{year} para o cpf {cpf}: {total_compras_mes}"
             )
             # Calculando o cashback do revendedor
             cashback_percent, cashback_value, cashback_context = cashback_calculate(
-                cpf, total_compras_mes, mes, ano
+                cpf, total_compras_mes, month, year
             )
             logger.debug(f"O percentual de cashback para o cpf {cpf} é de {cashback_percent}% "
                          f"e o valor total é de {cashback_value}.")
@@ -95,7 +93,8 @@ class UsuariosList(APIView):
                 serializer.data['password']
             )
             logger.debug(f"Solicitação de cadastro de usuário: {request.data}")
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({"mensagem": f"O usuário {serializer.data['email']} "
+                             "foi criado com sucesso!"}, status=status.HTTP_201_CREATED)
         logger.error(
             f"Os dados para criação de usuário não foram aceitos: {request.data}"
         )

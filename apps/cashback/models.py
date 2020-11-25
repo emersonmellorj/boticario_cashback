@@ -80,8 +80,8 @@ class Usuarios(AbstractBaseUser):
 class Compras(models.Model):
 
     STATUS_CHOICES = (
-        ("EV", "Em validação"),
-        ("AP", "Aprovado")
+        ("Em validação", "Em validação"),
+        ("Aprovado", "Aprovado")
     )
 
     purchase_code = models.IntegerField(
