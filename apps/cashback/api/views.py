@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .utils.cashback import cashback_calculate
 import requests
@@ -15,6 +16,9 @@ logger = logging.getLogger(__name__)
 
 
 class ComprasList(APIView):
+
+    permission_classes = [IsAuthenticated]
+
     def get_objects(self, pk):
         try:
             return Compras.objects.get(purchase_code=pk)
@@ -23,35 +27,56 @@ class ComprasList(APIView):
             raise Http404
 
     def get(self, request, pk=None, cpf=None, year=None, month=None, format=None):
+        cpf_request = request.user.cpf
         # Consulta de uma compra cadastrada
         if pk:
             logger.debug(f'Listando a compra de número {pk}')
-            compra = self.get_objects(pk)
-            serializer = ComprasSerializer(compra)
+            purchase = self.get_objects(pk)
+            # Validando se a compra pertence ao usuário que está autenticado
+            if purchase.cpf != cpf_request:
+                message = f"A compra pesquisada de número {purchase.purchase_code} " \
+                    f"não está vinculada ao CPF autenticado {cpf_request}."
+                logger.error(
+                    message
+                )
+                return Response(
+                    {"Mensagem": message}, status=status.HTTP_403_FORBIDDEN
+                )
+            serializer = ComprasSerializer(purchase)
+
         # Consulta do cashback para determinado CPF
         elif cpf and month and year:
             """ Preciso fazer a soma do valor das compras, calcular o cashback e devolver a informação.
             Obs: Só entram nos cálculos as compras com status Aprovado. """
-            compras = Compras.objects.filter(
+            if cpf_request != cpf:
+                message = "Um usuário não tem permissão de consultar cashback para compras " \
+                    f"que não estão vinculadas ao CPF autenticado {cpf_request}."
+                logger.error(
+                    message
+                )
+                return Response(
+                    {"Mensagem": message}, status=status.HTTP_403_FORBIDDEN
+                )
+            purchases = Compras.objects.filter(
                 cpf=cpf, purchase_date__month=month, purchase_date__year=year, status='Aprovado')
-            total_compras_mes = sum(compra.purchase_total_price
-                                    for compra in compras)
+            total_purchases_month = sum(purchase.purchase_total_price
+                                        for purchase in purchases)
             logger.debug(
-                f"Valor total de compras no mês de {month}/{year} para o cpf {cpf}: {total_compras_mes}"
+                f"Valor total de compras no mês de {month}/{year} para o cpf {cpf}: {total_purchases_month}"
             )
             # Calculando o cashback do revendedor
             cashback_percent, cashback_value, cashback_context = cashback_calculate(
-                cpf, total_compras_mes, month, year
+                cpf, total_purchases_month, month, year
             )
             logger.debug(f"O percentual de cashback para o cpf {cpf} é de {cashback_percent}% "
                          f"e o valor total é de {cashback_value}.")
-            serializer = ComprasSerializer(compras, many=True)
-            if not compras:
+            serializer = ComprasSerializer(purchases, many=True)
+            if not purchases:
                 return Response(
                     {"mensagem": "Dados não encontrados para o CPF no Mês/Ano informado."}, status=status.HTTP_404_NOT_FOUND
                 )
             logger.debug(
-                f'Listando as compras: {[compra.purchase_code for compra in compras]}'
+                f'Listando as compras: {[purchase.purchase_code for purchase in purchases]}'
             )
             return Response(cashback_context)
 
@@ -62,6 +87,16 @@ class ComprasList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        # Validando se o usuário autenticado é igual ao cpf da compra
+        cpf_request = request.user.cpf
+        if cpf_request != request.data['cpf']:
+            message = f"O CPF da compra enviada na requisição não está vinculada ao CPF autenticado {cpf_request}."
+            logger.error(
+                message
+            )
+            return Response(
+                {"Mensagem": message}, status=status.HTTP_403_FORBIDDEN
+            )
         serializer = ComprasSerializer(data=request.data)
         if serializer.is_valid():
             validated_cpf = serializer.validated_data['cpf'] == "15350946056"
@@ -80,7 +115,7 @@ class ComprasList(APIView):
 
 class UsuariosList(APIView):
 
-    #authentication_classes = (BasicAuthentication,)
+    permission_classes = [AllowAny]
 
     def post(self, request, format=None):
         serializer = UsuariosSerializer(data=request.data)

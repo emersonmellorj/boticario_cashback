@@ -9,7 +9,7 @@ def cashback_calculate(cpf, value, month, year):
 
     cashback_context = {
         'CPF da compra': cpf,
-        f'Valor total de compras no mês de {month}/{year}': f"R$ {value}",
+        f'Valor total de compras aprovadas no mês de {month}/{year}': f"R$ {value}",
         'Percentual de cashback': f"{cashback_percent}%",
         'Valor total de cashback': f"R$ {cashback_value}"
     }
