@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 from django.urls import reverse
 
-
 class UsuarioManager(BaseUserManager):
     def create_user(self, email, firstname, lastname, cpf, password=None):
         if not email:
@@ -50,8 +49,8 @@ class Usuarios(AbstractBaseUser):
 
     objects = UsuarioManager()
 
-    def get_absolute_url(self):
-        return reverse("cashback:user_detail", kwargs={"cpf": self.cpf})
+    #def get_absolute_url(self):
+    #    return reverse("cashback:user_detail", kwargs={"cpf": self.cpf})
 
     def __str__(self):
         return self.email

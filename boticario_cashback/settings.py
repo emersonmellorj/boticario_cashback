@@ -171,7 +171,7 @@ LOGGING = {
             'formatter': 'standard',
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'CRITICAL',
             'class': 'logging.StreamHandler',
             'formatter': 'standard',
         },

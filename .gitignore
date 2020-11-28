@@ -1,3 +1,4 @@
 info.txt
 apps/cashback/__pycache__/*
 boticario_cashback/__pycache__/*
+htmlcov/*

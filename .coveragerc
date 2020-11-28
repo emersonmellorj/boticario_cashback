@@ -1,0 +1,20 @@
+# .coveragerc to control coverage.py
+[run]
+source = ./apps/cashback/
+
+omit = 
+    */__init__.py
+    */settings.py
+    */manage.py
+    */wsgi.py
+    */asgi.py
+    */apps.py
+    */urls.py
+    */admin.py
+    */migrations/*
+    boticario_cashback/*
+    apps/cashback/tests/*
+    venv/*
+
+[html]
+directory = htmlcov

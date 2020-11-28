@@ -5,15 +5,15 @@ from django.http import Http404, JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .utils.cashback import cashback_calculate
 import requests
 import logging
+import warnings
 
 logger = logging.getLogger(__name__)
-
+warnings.filterwarnings("ignore")
 
 class ComprasList(APIView):
 
@@ -55,7 +55,7 @@ class ComprasList(APIView):
                     message
                 )
                 return Response(
-                    {"Mensagem": message}, status=status.HTTP_403_FORBIDDEN
+                    {"mensagem": message}, status=status.HTTP_403_FORBIDDEN
                 )
             purchases = Compras.objects.filter(
                 cpf=cpf, purchase_date__month=month, purchase_date__year=year, status='Aprovado')
@@ -82,7 +82,7 @@ class ComprasList(APIView):
 
         else:
             return Response(
-                {"mensagem": "Favor informar um CPF e Mês/Ano para o cálculo do cashback."}, status=status.HTTP_404_NOT_FOUND
+                {"mensagem": "Favor informar o número da compra que deseja consultar."}, status=status.HTTP_404_NOT_FOUND
             )
         return Response(serializer.data)
 
@@ -110,7 +110,7 @@ class ComprasList(APIView):
                 f"Método POST chamado para cadastro da compra: {request.data}."
             )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        #return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UsuariosList(APIView):
