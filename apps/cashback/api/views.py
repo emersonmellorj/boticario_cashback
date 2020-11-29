@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 warnings.filterwarnings("ignore")
 
 class ComprasList(APIView):
-
+    """ Class view of purchases """
     permission_classes = [IsAuthenticated]
 
     def get_objects(self, pk):
@@ -28,11 +28,16 @@ class ComprasList(APIView):
 
     def get(self, request, pk=None, cpf=None, year=None, month=None, format=None):
         cpf_request = request.user.cpf
-        # Consulta de uma compra cadastrada
+        
+        # Total cashback value in external API
+        if "acumulado_cashback" in request.get_full_path():
+            return self.acumulado_cashback(cpf)
+
+        # Get request of a single purchase
         if pk:
             logger.debug(f'Listando a compra de número {pk}')
             purchase = self.get_objects(pk)
-            # Validando se a compra pertence ao usuário que está autenticado
+            # Validating that the purchase belongs to the user who is authenticated
             if purchase.cpf != cpf_request:
                 message = f"A compra pesquisada de número {purchase.purchase_code} " \
                     f"não está vinculada ao CPF autenticado {cpf_request}."
@@ -44,10 +49,8 @@ class ComprasList(APIView):
                 )
             serializer = ComprasSerializer(purchase)
 
-        # Consulta do cashback para determinado CPF
         elif cpf and month and year:
-            """ Preciso fazer a soma do valor das compras, calcular o cashback e devolver a informação.
-            Obs: Só entram nos cálculos as compras com status Aprovado. """
+            """ Only purchases with Approved status are included in the calculations """
             if cpf_request != cpf:
                 message = "Um usuário não tem permissão de consultar cashback para compras " \
                     f"que não estão vinculadas ao CPF autenticado {cpf_request}."
@@ -64,7 +67,7 @@ class ComprasList(APIView):
             logger.debug(
                 f"Valor total de compras no mês de {month}/{year} para o cpf {cpf}: {total_purchases_month}"
             )
-            # Calculando o cashback do revendedor
+            # Cashback calculate of seller
             cashback_percent, cashback_value, cashback_context = cashback_calculate(
                 cpf, total_purchases_month, month, year
             )
@@ -87,10 +90,11 @@ class ComprasList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        # Validando se o usuário autenticado é igual ao cpf da compra
-        cpf_request = request.user.cpf
-        if cpf_request != request.data['cpf']:
-            message = f"O CPF da compra enviada na requisição não está vinculada ao CPF autenticado {cpf_request}."
+        # Validating if the authenticated user is the same as the cpf of the purchase
+        cpf_user_in_request = request.user.cpf
+        cpf_sent_in_json = request.data['cpf'].replace(".", "").replace("-", "")
+        if cpf_user_in_request != cpf_sent_in_json:
+            message = f"O CPF da compra enviada na requisição não está vinculada ao CPF autenticado {cpf_user_in_request}."
             logger.error(
                 message
             )
@@ -99,6 +103,7 @@ class ComprasList(APIView):
             )
         serializer = ComprasSerializer(data=request.data)
         if serializer.is_valid():
+            serializer.validated_data['cpf'] = serializer.validated_data['cpf'].replace(".", "").replace("-", "")
             validated_cpf = serializer.validated_data['cpf'] == "15350946056"
             if validated_cpf:
                 logger.debug(
@@ -110,11 +115,32 @@ class ComprasList(APIView):
                 f"Método POST chamado para cadastro da compra: {request.data}."
             )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        #return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    
+    def acumulado_cashback(self, cpf=None):
+        """ Function that send a request for external API and get cashback acumulate """
+        user_has_permission = (cpf == self.request.user.cpf)
+        if user_has_permission:
+            url_acumulado_cashback = f"https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback?cpf={cpf}"
+            logger.debug(
+                f"Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF {cpf}"
+            )
+            response = requests.get(url_acumulado_cashback, headers={
+                                                            'token': 'ZXPURQOARHiMc6Y0flhRC1LVlZQVFRnm'
+                                                            }
+                                    )
+            logger.debug(
+                f"Valor de cashback acumulado para o CPF {cpf}: {response.json()['body']}"
+            )
+            return JsonResponse(response.json()['body'], status=status.HTTP_200_OK)
+        return JsonResponse({"mensagem": "Você não tem permissão para consultar o cashback deste CPF."}, 
+                                status=status.HTTP_400_BAD_REQUEST
+                            )
 
 
 class UsuariosList(APIView):
-
+    """ Class view of Api Users """
     permission_classes = [AllowAny]
 
     def post(self, request, format=None):
@@ -134,18 +160,3 @@ class UsuariosList(APIView):
             f"Os dados para criação de usuário não foram aceitos: {request.data}"
         )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-def acumulado_cashback(request, cpf):
-    url_acumulado_cashback = f"https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback?cpf={cpf}"
-    logger.debug(
-        f"Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF {cpf}"
-    )
-    response = requests.get(url_acumulado_cashback,
-                            headers={
-                                'token': 'ZXPURQOARHiMc6Y0flhRC1LVlZQVFRnm'}
-                            )
-    logger.debug(
-        f"Valor de cashback acumulado para o CPF {cpf}: {response.json()['body']}"
-    )
-    return JsonResponse(response.json()['body'], status=status.HTTP_200_OK)

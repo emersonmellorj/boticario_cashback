@@ -9,6 +9,6 @@ urlpatterns = [
     path('compras/<pk>/', views.ComprasList.as_view(), name='purchase_detail'),
     path('usuarios/', views.UsuariosList.as_view(),
          name='user_create'),
-    path('acumulado_cashback/<str:cpf>/',
-         views.acumulado_cashback, name="cashback_acumulate")
+    path('compras/acumulado_cashback/<str:cpf>/',
+         views.ComprasList.as_view(), name="cashback_acumulate")
 ]

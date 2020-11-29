@@ -189,6 +189,16 @@ class TestPurchases(TestCase):
         result = self.client.post(self.create_purchase_url, data=data, **self.headers)
         self.assertEqual(result.status_code, 403)
 
+    def test_post_a_new_purchase_with_existent_purchase_code(self):
+        data = {
+                "purchase_code": 0,
+                "purchase_total_price": 1.00,
+                "purchase_date": "2020-12-01",
+                "cpf":  self.user.cpf
+        }
+        result = self.client.post(self.create_purchase_url, data=data, **self.headers)
+        self.assertEqual(result.status_code, 400)
+
     def test_post_a_purchase_with_status_validated(self):
         data = {
                 "purchase_code": -2,
@@ -203,8 +213,43 @@ class TestPurchases(TestCase):
 class TestExternalAcumulatedCashback(TestCase):
     """ Test get acumulated cashback in external API over internal URL """
     def setUp(self):
-        self.acumulate_cashback_url = f"http://127.0.0.1:8000/api/acumulado_cashback/99999999999/"
+        self.acumulate_cashback_url = f"http://127.0.0.1:8000/api/compras/acumulado_cashback/99999999999/"
+        self.create_user_url = "http://localhost:8000/api/usuarios/"
+        self.url_get_token = "http://localhost:8000/get-token/"
+        # Data for create an normal user
+        self.user_data = {
+            "firstname": "Jorge", 
+            "lastname": "Silva", 
+            "email": "jorge.silva@gmail.com", 
+            "cpf": "99999999999",
+            "password": "teste@123"
+        }
+        # Create an normal user        
+        self.create_user = self.client.post(self.create_user_url, data=self.user_data)
+        # Get a normal created user
+        self.user = Usuarios.objects.get(email=self.user_data["email"])
+        # Credentials of normal created user
+        self.credentials = {
+                        'email': self.user.email,
+                        'password': self.user_data['password'],
+                    }
+        # Get token of normal created user
+        self.token = self.client.post(self.url_get_token, data=self.credentials)
+        # Header Authorization of normal user
+        self.authorization = f"JWT {self.token.data['token']}"
+        self.headers = {
+            "HTTP_AUTHORIZATION": self.authorization
+        }
 
-    def test_url_acumulado_cashback(self):
-        result = self.client.get(self.acumulate_cashback_url)
+    def test_get_cashback_acumulate_for_logged_user(self):
+        result = self.client.get(self.acumulate_cashback_url, **self.headers)
         self.assertIn("credit", result.json())
+
+    def test_get_cashback_acumulate_for_anonymous_user(self):
+        result = self.client.get(self.acumulate_cashback_url)
+        self.assertEqual("As credenciais de autenticação não foram fornecidas.", result.json()['detail'])
+
+    def test_try_get_cashback_acumulate_for_user_with_other_cpf(self):
+        acumulate_cashback_url = f"http://127.0.0.1:8000/api/compras/acumulado_cashback/88888888888/"
+        result = self.client.get(acumulate_cashback_url, **self.headers)
+        self.assertEqual("Você não tem permissão para consultar o cashback deste CPF.", result.json()['mensagem'])
