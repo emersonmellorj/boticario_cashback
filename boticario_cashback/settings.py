@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.cashback.apps.CashbackConfig',
+    'apps.usuarios.apps.UsuariosConfig',
     'rest_framework',
 ]
 

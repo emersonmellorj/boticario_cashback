@@ -71,3 +71,14 @@ apps.cashback.models.Compras.DoesNotExist: Compras matching query does not exist
 [02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
 [02/Dec/2020 12:54:45] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
 [02/Dec/2020 12:54:45] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 13:06:39] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:08:59] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:09:16] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:09:24] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:10:08] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:10:20] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:10:58] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:11:13] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:11:27] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:15:49] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 13:15:49] DEBUG [asyncio:59] Using selector: KqueueSelector
