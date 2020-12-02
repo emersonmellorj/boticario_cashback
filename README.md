@@ -45,7 +45,7 @@ Quando for necessário fazer um post para a API, os dados enviados deverão segu
   "firstname": "Joaquim",
   "lastname": "José",
   "email": "joaquim.jose@gmail.com",
-  "cpf": "99999999999",
+  "cpf": "99999999999", # Sem pontos e vírgulas, apenas a numeração
   "password": "teste@9999"
 }
 ```
@@ -56,7 +56,7 @@ Quando for necessário fazer um post para a API, os dados enviados deverão segu
   "purchase_code": 18,
   "purchase_total_price": 407.00,
   "purchase_date": "2020-11-25",
-  "cpf": "99999999999"
+  "cpf": "99999999999" # Sem pontos e vírgulas, apenas a numeração
 }
 ```
 
