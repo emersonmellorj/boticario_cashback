@@ -81,7 +81,6 @@ class Compras(models.Model):
         ("Aprovado", "Aprovado")
     )
 
-    # DEI MOLE, PRECISAVA COLOCAR O RELACIONAMENTO DESTA TABELA COM USUARIOS (cpf = foreign key)
     purchase_code = models.IntegerField(
         primary_key=True, null=False, blank=False
     )
@@ -89,7 +88,6 @@ class Compras(models.Model):
         decimal_places=2, max_digits=8, null=False, blank=False
     )
     purchase_date = models.DateField(null=False, blank=False)
-    #cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
     cpf = models.ForeignKey(Usuarios, related_name="usuario", on_delete=models.CASCADE)
     status = models.CharField(
         max_length=15, choices=STATUS_CHOICES, default='Em validação'
