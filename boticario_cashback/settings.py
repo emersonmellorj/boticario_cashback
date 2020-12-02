@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.cashback.apps.CashbackConfig',
+    'apps.usuarios.apps.UsuariosConfig',
     'rest_framework',
 ]
 
@@ -150,7 +151,7 @@ REST_FRAMEWORK = {
     'JWT_AUTH_COOKIE': None,
 }
 
-AUTH_USER_MODEL = 'cashback.Usuarios'
+AUTH_USER_MODEL = 'usuarios.Usuarios'
 
 LOGGING = {
     'version': 1,

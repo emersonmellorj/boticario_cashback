@@ -104,7 +104,7 @@ cadastradas, tendo o poder inclusive de alterar o status da mesma;
 
 A cobertura dos testes estão baseados no relatório gerado pelo coverage. Foram desenvolvidos testes para as Views, Models, Serializers e para a função de cashback do projeto. Para executar os testes, basta utilizar o comando no shell, de dentro do diretório do projeto:
 
-coverage run -m unittest discover apps/cashback/tests/
+coverage run -m unittest discover tests/
 
 Conforme pode ser visto abaixo, segundo o coverage, nossa cobertura de testes está em 100%.
 
