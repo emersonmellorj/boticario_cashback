@@ -45,7 +45,7 @@ Quando for necessário fazer um post para a API, os dados enviados deverão segu
   "firstname": "Joaquim",
   "lastname": "José",
   "email": "joaquim.jose@gmail.com",
-  "cpf": "99999999999", # Sem pontos e vírgulas, apenas a numeração
+  "cpf": "99999999999",
   "password": "teste@9999"
 }
 ```
@@ -56,7 +56,7 @@ Quando for necessário fazer um post para a API, os dados enviados deverão segu
   "purchase_code": 18,
   "purchase_total_price": 407.00,
   "purchase_date": "2020-11-25",
-  "cpf": "99999999999" # Sem pontos e vírgulas, apenas a numeração
+  "cpf": "99999999999"
 }
 ```
 
@@ -108,7 +108,7 @@ coverage run -m unittest discover apps/cashback/tests/
 
 Conforme pode ser visto abaixo, segundo o coverage, nossa cobertura de testes está em 100%.
 
-IMAGEM
+<img src="https://live.staticflickr.com/65535/50662489206_9eaffcee29_z.jpg" width="640" height="240" alt="coverage_report_boticario_cashback">
 
 ## 11 - Logs da aplicação:
 Foram configuradas saídas de logs para o terminal e para arquivo, de acordo com a severidade de cada uma delas. Os logs 
