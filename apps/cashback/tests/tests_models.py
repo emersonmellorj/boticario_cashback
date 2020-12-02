@@ -51,7 +51,7 @@ class TestUserModel(TestCase):
         self.assertEqual(self.create_super_user.is_admin, True)
 
     def test_print_an_user(self):
-        self.assertEqual(str(self.first_user), self.first_user.email)
+        self.assertEqual(str(self.first_user), self.first_user.cpf)
 
     def test_an_user_has_perm(self):
         user_has_perm = self.first_user.has_perm("Teste")

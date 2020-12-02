@@ -1,16 +1,43 @@
-[29/Nov/2020 11:52:49] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:49] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:49] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 99999999999.
-[29/Nov/2020 11:52:49] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:50] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:50] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/1000 para o cpf 99999999999: 0
-[29/Nov/2020 11:52:50] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 11:52:50] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:50] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:51] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:51] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:51] DEBUG [apps.cashback.api.views:38] Listando a compra de número -1
-[29/Nov/2020 11:52:51] ERROR [apps.cashback.api.views:26] A compra de código -1 não existe!
+[02/Dec/2020 12:52:48] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:52:48] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:52:48] DEBUG [apps.cashback.api.views:108] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
+[02/Dec/2020 12:52:48] INFO [apps.cashback.api.views:113] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-2'], 'purchase_total_price': ['2.0'], 'purchase_date': ['2020-12-02'], 'cpf': ['15350946056']}>.
+[02/Dec/2020 12:52:48] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:52:48] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:52:48] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/2010 para o cpf 99999999999: 0
+[02/Dec/2020 12:52:48] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
+[02/Dec/2020 12:52:49] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:52:49] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:52:49] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:35] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 12:54:37] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:38] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:38] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:38] DEBUG [apps.cashback.api.views:125] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 99999999999
+[02/Dec/2020 12:54:38] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
+[02/Dec/2020 12:54:39] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=99999999999 HTTP/1.1" 200 41
+[02/Dec/2020 12:54:39] DEBUG [apps.cashback.api.views:132] Valor de cashback acumulado para o CPF 99999999999: {'credit': 3240}
+[02/Dec/2020 12:54:39] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:39] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:39] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:39] DEBUG [apps.cashback.api.views:38] Listando a compra de número 0
+[02/Dec/2020 12:54:39] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:39] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 11/2020 para o cpf 99999999999: 0
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:40] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:40] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 99999999999.
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:40] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/1000 para o cpf 99999999999: 0
+[02/Dec/2020 12:54:40] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
+[02/Dec/2020 12:54:41] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:41] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:41] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:41] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:41] DEBUG [apps.cashback.api.views:38] Listando a compra de número -1
+[02/Dec/2020 12:54:41] ERROR [apps.cashback.api.views:26] A compra de código -1 não existe!
 Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 24, in get_objects
     return Compras.objects.get(purchase_code=pk)
@@ -19,205 +46,28 @@ Traceback (most recent call last):
   File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
     raise self.model.DoesNotExist(
 apps.cashback.models.Compras.DoesNotExist: Compras matching query does not exist.
-[29/Nov/2020 11:52:51] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:51] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:52] DEBUG [apps.cashback.api.views:38] Listando a compra de número 1
-[29/Nov/2020 11:52:52] ERROR [apps.cashback.api.views:44] A compra pesquisada de número 1 não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 11:52:52] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:52] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:52] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:53] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:53] INFO [apps.cashback.api.views:112] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-1'], 'purchase_total_price': ['1.0'], 'purchase_date': ['2020-12-01'], 'cpf': ['99999999999']}>.
-[29/Nov/2020 11:52:53] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:53] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:53] ERROR [apps.cashback.api.views:97] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 11:52:53] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:107] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
-[29/Nov/2020 11:52:54] INFO [apps.cashback.api.views:112] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-2'], 'purchase_total_price': ['2.0'], 'purchase_date': ['2020-12-02'], 'cpf': ['15350946056']}>.
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/2010 para o cpf 99999999999: 0
-[29/Nov/2020 11:52:54] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 11:52:55] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:55] DEBUG [apps.cashback.api.views:154] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:52:55] ERROR [apps.cashback.api.views:157] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 11:55:09] DEBUG [apps.cashback.api.views:124] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 09079003729
-[29/Nov/2020 11:55:09] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
-[29/Nov/2020 11:55:10] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=09079003729 HTTP/1.1" 200 41
-[29/Nov/2020 11:55:10] DEBUG [apps.cashback.api.views:131] Valor de cashback acumulado para o CPF 09079003729: {'credit': 3755}
-[29/Nov/2020 11:55:14] DEBUG [apps.cashback.api.views:124] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 09079003729
-[29/Nov/2020 11:55:14] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
-[29/Nov/2020 11:55:15] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=09079003729 HTTP/1.1" 200 40
-[29/Nov/2020 11:55:15] DEBUG [apps.cashback.api.views:131] Valor de cashback acumulado para o CPF 09079003729: {'credit': 801}
-[29/Nov/2020 11:55:21] DEBUG [apps.cashback.api.views:38] Listando a compra de número 1
-[29/Nov/2020 11:55:21] ERROR [apps.cashback.api.views:44] A compra pesquisada de número 1 não está vinculada ao CPF autenticado 09079003729.
-[29/Nov/2020 11:55:28] DEBUG [apps.cashback.api.views:124] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 09079003729
-[29/Nov/2020 11:55:28] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
-[29/Nov/2020 11:55:29] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=09079003729 HTTP/1.1" 200 40
-[29/Nov/2020 11:55:29] DEBUG [apps.cashback.api.views:131] Valor de cashback acumulado para o CPF 09079003729: {'credit': 641}
-[29/Nov/2020 11:55:48] ERROR [apps.cashback.api.views:97] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 09079003729.
-[29/Nov/2020 11:55:59] ERROR [django.request:224] Internal Server Error: /api/compras/
-Traceback (most recent call last):
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 511, in dispatch
-    self.response = self.finalize_response(request, response, *args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/rest_framework/views.py", line 423, in finalize_response
-    assert isinstance(response, HttpResponseBase), (
-AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
-[29/Nov/2020 11:55:59] ERROR [django.server:157] "POST /api/compras/ HTTP/1.1" 500 75845
-[29/Nov/2020 11:56:30] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 11:56:46] INFO [apps.cashback.api.views:112] Método POST chamado para cadastro da compra: {'purchase_code': 17, 'purchase_total_price': 3007.0, 'purchase_date': '2020-12-01', 'cpf': '09079003729'}.
-[29/Nov/2020 12:00:37] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:00:57] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:01:56] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:02:12] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:02:45] ERROR [apps.cashback.api.views:97] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 09079003729.
-[29/Nov/2020 12:03:13] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:04:15] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:04:18] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:04:44] ERROR [apps.cashback.api.views:98] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 09079003729.
-[29/Nov/2020 12:04:58] INFO [apps.cashback.api.views:114] Método POST chamado para cadastro da compra: {'purchase_code': 18, 'purchase_total_price': 407.0, 'purchase_date': '2020-11-25', 'cpf': '090.790.037-29'}.
-[29/Nov/2020 12:05:30] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 09079003729.
-[29/Nov/2020 12:05:35] DEBUG [apps.cashback.api.views:38] Listando a compra de número 18
-[29/Nov/2020 12:05:44] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 09079003729.
-[29/Nov/2020 12:06:03] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:06:40] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:07:03] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:07:21] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:07:22] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:07:25] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:07:27] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:27] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:28] DEBUG [apps.cashback.api.views:126] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 99999999999
-[29/Nov/2020 12:07:28] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
-[29/Nov/2020 12:07:28] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=99999999999 HTTP/1.1" 200 41
-[29/Nov/2020 12:07:28] DEBUG [apps.cashback.api.views:133] Valor de cashback acumulado para o CPF 99999999999: {'credit': 3155}
-[29/Nov/2020 12:07:29] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:29] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:29] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:29] DEBUG [apps.cashback.api.views:38] Listando a compra de número 0
-[29/Nov/2020 12:07:29] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 11/2020 para o cpf 99999999999: 24098.52
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 20% e o valor total é de 4819.70.
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:81] Listando as compras: [0]
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:30] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 99999999999.
-[29/Nov/2020 12:07:30] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/1000 para o cpf 99999999999: 0
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:31] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:32] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:32] DEBUG [apps.cashback.api.views:38] Listando a compra de número -1
-[29/Nov/2020 12:07:32] ERROR [apps.cashback.api.views:26] A compra de código -1 não existe!
-Traceback (most recent call last):
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 24, in get_objects
-    return Compras.objects.get(purchase_code=pk)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
-    raise self.model.DoesNotExist(
-apps.cashback.models.Compras.DoesNotExist: Compras matching query does not exist.
-[29/Nov/2020 12:07:32] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:32] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:32] DEBUG [apps.cashback.api.views:38] Listando a compra de número 1
-[29/Nov/2020 12:07:32] ERROR [apps.cashback.api.views:44] A compra pesquisada de número 1 não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 12:07:33] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:33] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:33] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:33] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:33] INFO [apps.cashback.api.views:114] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-1'], 'purchase_total_price': ['1.0'], 'purchase_date': ['2020-12-01'], 'cpf': ['99999999999']}>.
-[29/Nov/2020 12:07:34] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:34] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:34] ERROR [apps.cashback.api.views:98] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 12:07:34] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:34] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:34] DEBUG [apps.cashback.api.views:109] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
-[29/Nov/2020 12:07:34] INFO [apps.cashback.api.views:114] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-2'], 'purchase_total_price': ['2.0'], 'purchase_date': ['2020-12-02'], 'cpf': ['15350946056']}>.
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/2010 para o cpf 99999999999: 0
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:35] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:07:35] ERROR [apps.cashback.api.views:159] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:09:59] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:10:15] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 12:10:18] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:18] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:18] DEBUG [apps.cashback.api.views:126] Realizando a consulta na API do Boticário para resgatar o cashback acumulado para o CPF 99999999999
-[29/Nov/2020 12:10:18] DEBUG [urllib3.connectionpool:971] Starting new HTTPS connection (1): mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443
-[29/Nov/2020 12:10:19] DEBUG [urllib3.connectionpool:452] https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com:443 "GET /v1/cashback?cpf=99999999999 HTTP/1.1" 200 40
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:133] Valor de cashback acumulado para o CPF 99999999999: {'credit': 597}
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:38] Listando a compra de número 0
-[29/Nov/2020 12:10:19] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 11/2020 para o cpf 99999999999: 71635.71
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 20% e o valor total é de 14327.14.
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:81] Listando as compras: [0]
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:20] ERROR [apps.cashback.api.views:57] Um usuário não tem permissão de consultar cashback para compras que não estão vinculadas ao CPF autenticado 99999999999.
-[29/Nov/2020 12:10:20] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:21] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:21] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/1000 para o cpf 99999999999: 0
-[29/Nov/2020 12:10:21] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 12:10:21] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:21] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:38] Listando a compra de número -1
-[29/Nov/2020 12:10:22] ERROR [apps.cashback.api.views:26] A compra de código -1 não existe!
-Traceback (most recent call last):
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/apps/cashback/api/views.py", line 24, in get_objects
-    return Compras.objects.get(purchase_code=pk)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/Users/emersonmello/python/.virtualenvs/desafio_boticario/venv/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
-    raise self.model.DoesNotExist(
-apps.cashback.models.Compras.DoesNotExist: Compras matching query does not exist.
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:22] DEBUG [apps.cashback.api.views:38] Listando a compra de número 1
-[29/Nov/2020 12:10:22] ERROR [apps.cashback.api.views:44] A compra pesquisada de número 1 não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 12:10:23] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:23] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:23] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:23] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:23] INFO [apps.cashback.api.views:114] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-1'], 'purchase_total_price': ['1.0'], 'purchase_date': ['2020-12-01'], 'cpf': ['99999999999']}>.
-[29/Nov/2020 12:10:24] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:24] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:24] ERROR [apps.cashback.api.views:98] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 99999999999.
-[29/Nov/2020 12:10:24] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:24] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:25] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:25] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:25] DEBUG [apps.cashback.api.views:109] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
-[29/Nov/2020 12:10:25] INFO [apps.cashback.api.views:114] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-2'], 'purchase_total_price': ['2.0'], 'purchase_date': ['2020-12-02'], 'cpf': ['15350946056']}>.
-[29/Nov/2020 12:10:25] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:25] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Validated'], 'lastname': ['User'], 'email': ['validated.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:26] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/2010 para o cpf 99999999999: 0
-[29/Nov/2020 12:10:26] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
-[29/Nov/2020 12:10:26] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:26] DEBUG [apps.cashback.api.views:156] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 12:10:26] ERROR [apps.cashback.api.views:159] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
-[29/Nov/2020 13:20:27] DEBUG [MARKDOWN:163] Successfully imported extension module "markdown.extensions.toc".
-[29/Nov/2020 13:20:27] DEBUG [MARKDOWN:126] Successfully loaded extension "markdown.extensions.toc.TocExtension".
-[29/Nov/2020 13:40:09] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 19:09:22] DEBUG [asyncio:59] Using selector: KqueueSelector
-[29/Nov/2020 19:09:23] DEBUG [asyncio:59] Using selector: KqueueSelector
+[02/Dec/2020 12:54:41] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:42] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:42] DEBUG [apps.cashback.api.views:38] Listando a compra de número 1
+[02/Dec/2020 12:54:42] ERROR [apps.cashback.api.views:44] A compra pesquisada de número 1 não está vinculada ao CPF autenticado 99999999999.
+[02/Dec/2020 12:54:42] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:42] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:42] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:42] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:43] INFO [apps.cashback.api.views:113] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-1'], 'purchase_total_price': ['1.0'], 'purchase_date': ['2020-12-01'], 'cpf': ['99999999999']}>.
+[02/Dec/2020 12:54:43] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:43] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:43] ERROR [apps.cashback.api.views:98] O CPF da compra enviada na requisição não está vinculada ao CPF autenticado 99999999999.
+[02/Dec/2020 12:54:43] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:43] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:44] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:108] Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056.
+[02/Dec/2020 12:54:44] INFO [apps.cashback.api.views:113] Método POST chamado para cadastro da compra: <QueryDict: {'purchase_code': ['-2'], 'purchase_total_price': ['2.0'], 'purchase_date': ['2020-12-02'], 'cpf': ['15350946056']}>.
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:44] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jedi'], 'lastname': ['User'], 'email': ['jedi.user@gmail.com'], 'cpf': ['15350946056'], 'password': ['teste@1620']}>
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:67] Valor total de compras no mês de 10/2010 para o cpf 99999999999: 0
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:74] O percentual de cashback para o cpf 99999999999 é de 10% e o valor total é de 0.0.
+[02/Dec/2020 12:54:44] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:45] DEBUG [apps.cashback.api.views:155] Solicitação de cadastro de usuário: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>
+[02/Dec/2020 12:54:45] ERROR [apps.cashback.api.views:158] Os dados para criação de usuário não foram aceitos: <QueryDict: {'firstname': ['Jorge'], 'lastname': ['Silva'], 'email': ['jorge.silva@gmail.com'], 'cpf': ['99999999999'], 'password': ['teste@123']}>

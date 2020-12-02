@@ -33,6 +33,7 @@ class UsuarioManager(BaseUserManager):
 
 
 class Usuarios(AbstractBaseUser):
+    cpf = models.CharField("CPF", max_length=14, primary_key=True)
     firstname = models.CharField(max_length=50, null=False, blank=False)
     lastname = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(
@@ -40,7 +41,6 @@ class Usuarios(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    cpf = models.CharField("CPF", max_length=14)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
@@ -49,11 +49,9 @@ class Usuarios(AbstractBaseUser):
 
     objects = UsuarioManager()
 
-    #def get_absolute_url(self):
-    #    return reverse("cashback:user_detail", kwargs={"cpf": self.cpf})
 
     def __str__(self):
-        return self.email
+        return self.cpf
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -83,6 +81,7 @@ class Compras(models.Model):
         ("Aprovado", "Aprovado")
     )
 
+    # DEI MOLE, PRECISAVA COLOCAR O RELACIONAMENTO DESTA TABELA COM USUARIOS (cpf = foreign key)
     purchase_code = models.IntegerField(
         primary_key=True, null=False, blank=False
     )
@@ -90,7 +89,8 @@ class Compras(models.Model):
         decimal_places=2, max_digits=8, null=False, blank=False
     )
     purchase_date = models.DateField(null=False, blank=False)
-    cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
+    #cpf = models.CharField("CPF", max_length=14, null=False, blank=False)
+    cpf = models.ForeignKey(Usuarios, related_name="usuario", on_delete=models.CASCADE)
     status = models.CharField(
         max_length=15, choices=STATUS_CHOICES, default='Em validação'
     )

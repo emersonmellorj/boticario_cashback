@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'boticario_cashback',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': '87eNOSSO',
         'HOST': 'localhost',
         'PORT': '5432'
     }

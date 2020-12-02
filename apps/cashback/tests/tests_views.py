@@ -80,17 +80,7 @@ class TestPurchases(TestCase):
         }
 
         # Create a normal purchase
-        mommy.make('Compras', cpf="99999999999", purchase_code="0", purchase_date="2020-11-30")
-
-        # Create a validated purchase
-        mommy.make(
-            'Compras', 
-            cpf=f"{self.user.cpf}",
-            purchase_code="0",
-            purchase_date="2020-11-30",
-            status="Aprovado",
-            created_at=timezone.now()
-        )
+        mommy.make('Compras', cpf=self.user, purchase_code="0", purchase_date="2020-11-30")
 
         # Get a created purchase
         self.id_compra = Compras.objects.first().purchase_code
@@ -100,11 +90,11 @@ class TestPurchases(TestCase):
         
         # Create a user that purchases will be validated in create
         self.user_validated_data = {
-            "firstname": "Validated", 
+            "firstname": "Jedi", 
             "lastname": "User", 
-            "email": "validated.user@gmail.com", 
+            "email": "jedi.user@gmail.com", 
             "cpf": "15350946056",
-            "password": "teste@123"
+            "password": "teste@1620"
         }
 
         self.create_validated_user = self.client.post('http://localhost:8000/api/usuarios/', data=self.user_validated_data)
@@ -122,6 +112,16 @@ class TestPurchases(TestCase):
         self.headers_validated_user = {
             "HTTP_AUTHORIZATION": self.authorization_of_validate_user
         }
+
+        # Create a validated purchase
+        mommy.make(
+            'Compras', 
+            cpf=self.validated_user,
+            purchase_code="1",
+            purchase_date="2020-11-30",
+            status="Aprovado",
+            created_at=timezone.now()
+        )
 
     def test_get_a_created_purchase(self):
         result = self.client.get(self.get_purchase_url, **self.headers)
@@ -147,9 +147,10 @@ class TestPurchases(TestCase):
         self.assertIn("Dados não encontrados para o CPF no Mês/Ano informado", result.json()["mensagem"])
 
     def test_get_cashback_for_user(self):
-        url = f"{self.get_cashback_url}/{self.user.cpf}/2020/11/"
+        """ The purchase created in test isn't approved"""
+        url = f"{self.get_cashback_url}/{str(self.user)}/2020/11/"
         result = self.client.get(url, **self.headers)
-        self.assertIn("Valor total de compras aprovadas no mês de 11/2020", result.json())
+        self.assertIn("Dados não encontrados para o CPF no Mês/Ano informado", result.json()['mensagem'])
 
     def test_get_cashback_in_other_cpf(self):
         url = f"{self.get_cashback_url}/{88888888888}/2020/10/"

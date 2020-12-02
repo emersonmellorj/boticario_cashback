@@ -38,7 +38,7 @@ class ComprasList(APIView):
             logger.debug(f'Listando a compra de número {pk}')
             purchase = self.get_objects(pk)
             # Validating that the purchase belongs to the user who is authenticated
-            if purchase.cpf != cpf_request:
+            if str(purchase.cpf) != cpf_request:
                 message = f"A compra pesquisada de número {purchase.purchase_code} " \
                     f"não está vinculada ao CPF autenticado {cpf_request}."
                 logger.error(
@@ -103,8 +103,7 @@ class ComprasList(APIView):
             )
         serializer = ComprasSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.validated_data['cpf'] = serializer.validated_data['cpf'].replace(".", "").replace("-", "")
-            validated_cpf = serializer.validated_data['cpf'] == "15350946056"
+            validated_cpf = str(serializer.validated_data['cpf']) == "15350946056"
             if validated_cpf:
                 logger.debug(
                     "Solicitação de cadastro de compra previamente aprovada para o CPF 15350946056."

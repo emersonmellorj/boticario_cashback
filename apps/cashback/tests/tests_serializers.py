@@ -32,11 +32,29 @@ class TestUsuariosSerializer(TestCase):
 class TestComprasSerializer(TestCase):
 
     def setUp(self):
+
+        self.create_user_url = "http://localhost:8000/api/usuarios/"
+
+        # Data for create an normal user
+        self.user_data = {
+            "firstname": "Jorge", 
+            "lastname": "Silva", 
+            "email": "jorge.silva@gmail.com", 
+            "cpf": "99999999999",
+            "password": "teste@123"
+        }
+
+        # Create an normal user        
+        self.create_user = self.client.post(self.create_user_url, data=self.user_data)
+
+        # Get a normal created user
+        self.user = Usuarios.objects.get(email=self.user_data["email"])
+
         self.purchase_atributes = {
             'purchase_code': 0,
             'purchase_total_price': 1000.00,
             'purchase_date': '2020-11-30',
-            'cpf': '99999999999',
+            'cpf': self.user,
             'status': 'Aprovado',
             'created_at': timezone.now()
         }
