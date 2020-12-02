@@ -151,7 +151,7 @@ REST_FRAMEWORK = {
     'JWT_AUTH_COOKIE': None,
 }
 
-AUTH_USER_MODEL = 'cashback.Usuarios'
+AUTH_USER_MODEL = 'usuarios.Usuarios'
 
 LOGGING = {
     'version': 1,
